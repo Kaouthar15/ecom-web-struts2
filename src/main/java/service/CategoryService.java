@@ -46,10 +46,11 @@ public class CategoryService implements DAO<Category> {
 	
 //	remove a category
 	@Override
-	public void remove(int id) {
+	public void remove(Long categoryId) {
+		System.out.println("remove category");
 		Session session = this.sessionFactory.getCurrentSession();
 		session.beginTransaction();
-		Category category = (Category) session.getReference(Category.class, Integer.valueOf(id));
+		Category category = (Category) session.getReference(Category.class, Long.valueOf(categoryId));
 		if(null != category){
 			session.remove(category);
 		}

@@ -21,7 +21,7 @@
         <action name="deleteCategory" 
                 class="controller.CategoryAction" 
                 method="delete">
-            <result name="success">/category.jsp</result>
+            <result name="success" type="redirectAction">listCategories</result>
             <result name="input">/inputCategory.jsp</result>
         </action>
 
@@ -29,7 +29,7 @@
         <action name="addCategory" 
                 class="controller.CategoryAction" 
                 method="add">
-            <result name="success">/addCategory.jsp</result>
+            <result name="success" type="redirectAction">listCategories</result>
             <result name="input">/inputCategory.jsp</result>
         </action>
 

@@ -10,10 +10,10 @@ public interface DAO<T> {
     void add(T t);
 
     void update(T t);
-
-	void remove(int id);
 		
 	List<T> selectByKeyword(String str);
+
+	void remove(Long id);
 	
 	
 }

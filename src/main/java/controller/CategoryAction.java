@@ -12,7 +12,7 @@ public class CategoryAction extends ActionSupport {
     
     private List<Category> categories;
     private Category category;
-    private int categoryId;
+    private Long categoryId;
     private String keyword;
 
     // Getter and Setter methods for Struts
@@ -28,7 +28,7 @@ public class CategoryAction extends ActionSupport {
         this.category = category;
     }
 
-    public void setCategoryId(int categoryId) {
+    public void setCategoryId(Long categoryId) {
         this.categoryId = categoryId;
     }
 
