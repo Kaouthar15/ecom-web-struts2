@@ -29,7 +29,7 @@
         <action name="addCategory" 
                 class="controller.CategoryAction" 
                 method="add">
-            <result name="success">/category.jsp</result>
+            <result name="success">/addCategory.jsp</result>
             <result name="input">/inputCategory.jsp</result>
         </action>
 

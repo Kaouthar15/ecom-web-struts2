@@ -26,6 +26,7 @@ public class CategoryService implements DAO<Category> {
 //	add a category
 	@Override
 	public void add(Category category) {
+		System.out.println("add category method");
 		Session session = this.sessionFactory.getCurrentSession();
 		session.beginTransaction();
 		session.persist(category);
