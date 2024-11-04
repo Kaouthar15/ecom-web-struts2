@@ -1,0 +1,8 @@
+util\HibernateUtil.class
+service\DAO.class
+controller\CategoryAction.class
+model\Product.class
+controller\ProductAction.class
+model\Category.class
+service\CategoryService.class
+service\ProductService.class
