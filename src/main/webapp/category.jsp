@@ -72,6 +72,7 @@
     </style>
 </head>
 <body>
+	<a href=""></a>
     <div class="container">
         <h2>Categories List: <s:property value="%{categories.size}"/></h2>
         <s:if test="%{categories.size > 0}">
