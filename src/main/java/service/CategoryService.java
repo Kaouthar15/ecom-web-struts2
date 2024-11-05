@@ -60,10 +60,10 @@ public class CategoryService implements DAO<Category> {
 	
 //  get a category using an id
 	@Override
-	public Category get(int id) {
+	public Category get(Long categoryId) {
 		Session session =  this.sessionFactory.getCurrentSession();
 		session.beginTransaction();
-		Category category = (Category) session.getReference(Category.class, Integer.valueOf(id));
+		Category category = (Category) session.getReference(Category.class, Long.valueOf(categoryId));
 		session.getTransaction().commit();
 		logger.info("Category loaded successfully, Category details="+category); 
 		return category;

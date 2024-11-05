@@ -2,8 +2,10 @@ package service;
 
 import java.util.List;
 
+import model.Product;
+
 public interface DAO<T> {
-    T get(int id);
+    T get(Long id);
 
     List<T> list();
 
@@ -14,5 +16,6 @@ public interface DAO<T> {
 	List<T> selectByKeyword(String str);
 
 	void remove(Long id);
+
 	
 }
