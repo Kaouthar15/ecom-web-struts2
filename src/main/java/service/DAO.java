@@ -15,5 +15,4 @@ public interface DAO<T> {
 
 	void remove(Long id);
 	
-	
 }
