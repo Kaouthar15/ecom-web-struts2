@@ -3,23 +3,33 @@ package controller;
 import java.util.List;
 import com.opensymphony.xwork2.ActionSupport;
 
+import org.apache.struts2.convention.annotation.Action;
+import org.apache.struts2.convention.annotation.Namespace;
+import org.apache.struts2.convention.annotation.Result;
+import org.apache.struts2.convention.annotation.Results;
+
 import model.Category;
 import model.Product;
 import service.ProductService;
 import service.CategoryService;
 
-public class ProductAction extends ActionSupport {
+//@Namespace("/product")
+//@Results({
+//    @Result(name = "success", location = "/product.jsp"),
+//    @Result(name = "input", location = "/input.jsp")
+//})
+public class ProductAction extends ActionSupport{
 
     private static final long serialVersionUID = 1L;
     private ProductService productService = new ProductService();
     private CategoryService categoryService = new CategoryService();
     
     private List<Product> products;
-    private List<Category> categories; // List of categories to show in forms
-    private Product product;
+    private List<Category> categories;
+    private Product product = new Product();
     private Long productId;
     private String keyword;
-    private Long categoryId; // ID of the selected category
+    private Long categoryId; 
 
     // Getter and Setter methods for Struts
     public List<Product> getProducts() {
@@ -62,25 +72,33 @@ public class ProductAction extends ActionSupport {
         this.categoryId = categoryId;
     }
     
+
+    
     // Action methods
     
-    // List all products
+    @Action(value = "list", results = @Result(name = "success", location = "/product.jsp"))
     public String list() {
         products = productService.list();
         return SUCCESS;
     }
     
-    // Add product method
+    @Action(value = "add", results = {
+        @Result(name = "success", location = "/product.jsp"),
+        @Result(name = "input", location = "/addProduct.jsp")
+    })
     public String add() {
-        categories = categoryService.list(); // Load categories for the form
+        categories = categoryService.list(); 
         if (product != null) {
-            productService.add(product, categoryId); // Pass categoryId to add product
+            productService.add(product, categoryId); 
             return SUCCESS;
         }
         return INPUT;
     }
     
-    // Update product method
+    @Action(value = "update", results = {
+        @Result(name = "success", location = "/products.jsp"),
+//        @Result(name = "input", location = "/updateProduct.jsp")
+    })
     public String update() {
         categories = categoryService.list(); // Load categories for the form
         if (product != null && product.getId() != null) {
@@ -90,7 +108,7 @@ public class ProductAction extends ActionSupport {
         return INPUT;
     }
     
-    // Delete product method
+    @Action(value = "delete", results = @Result(name = "success", location = "/product.jsp"))
     public String delete() {
         if (productId > 0) {
             productService.remove(productId);
@@ -99,7 +117,10 @@ public class ProductAction extends ActionSupport {
         return INPUT;
     }
     
-    // Search method
+    @Action(value = "search", results = {
+        @Result(name = "success", location = "/products.jsp"),
+//        @Result(name = "input", location = "/searchProduct.jsp")
+    })
     public String search() {
         if (keyword != null && !keyword.isEmpty()) {
             products = productService.selectByKeyword(keyword);

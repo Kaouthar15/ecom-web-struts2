@@ -16,7 +16,7 @@ public class ProductService implements DAO<Product> {
 
     private static final Logger logger = Logger.getLogger(ProductService.class.getName());
     private SessionFactory sessionFactory = getSessionFactory();
-    private CategoryService categoryService = new CategoryService(); // To get Category data
+    private CategoryService categoryService = new CategoryService();
     
     protected SessionFactory getSessionFactory() {
         try {
