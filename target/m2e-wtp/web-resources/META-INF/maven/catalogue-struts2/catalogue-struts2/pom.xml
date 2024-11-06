@@ -17,9 +17,9 @@
 		<dependency>
 		    <groupId>org.apache.struts</groupId>
 		    <artifactId>struts2-core</artifactId>
-		    <version>2.5.20</version> 
+		    <version>6.0.0</version>
 		</dependency>
-		<!-- Struts Bootstrap Plugin -->
+			<!-- Struts Bootstrap Plugin -->
 		<dependency>
 		    <groupId>com.jgeppert.struts2.bootstrap</groupId>
 		    <artifactId>struts2-bootstrap-plugin</artifactId>
@@ -34,17 +34,10 @@
 		</dependency>
 		<!--struts2 convention-->
 		<dependency>
-		  <groupId>org.apache.struts</groupId>
-		  <artifactId>struts2-convention-plugin</artifactId>
-		  <version>2.5.26</version> <!-- Match this version with your Struts version -->
+		    <groupId>org.apache.struts</groupId>
+		    <artifactId>struts2-convention-plugin</artifactId>
+		    <version>6.0.0</version>
 		</dependency>
-		<!--commons-lang3-->
-		<dependency>
-		    <groupId>org.apache.commons</groupId>
-		    <artifactId>commons-lang3</artifactId>
-		    <version>3.12.0</version> <!-- Use the latest version available -->
-		</dependency>
-
 		
         <!-- MySQL Connector -->
         <dependency>
@@ -67,6 +60,13 @@
             <version>4.0.1</version>
             <scope>provided</scope>
         </dependency>
+
+		<!--browser plugin-->
+		<dependency>
+		    <groupId>org.apache.struts</groupId>
+		    <artifactId>struts2-config-browser-plugin</artifactId>
+		    <version>6.0.0</version>
+		</dependency>
 
         <!-- JSP and JSTL dependencies -->
         <dependency>

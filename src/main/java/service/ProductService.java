@@ -55,6 +55,7 @@ public class ProductService implements DAO<Product> {
 
     // Add a product with a category
     public void add(Product product, Long categoryId) {
+    	System.out.println("categoryId from serivce"+categoryId);
         Session session = this.sessionFactory.getCurrentSession();
         session.beginTransaction();
 

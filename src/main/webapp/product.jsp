@@ -80,8 +80,9 @@
                     <th>Id</th>
                     <th>Category</th>
                     <th>Name</th>
-                    <th>Description</th>
+                    <th>Quantity</th>
                     <th>Price</th>
+                    <th>SDR</th>
                     <th>Action</th>
                 </tr>
                 <s:iterator value="products"> 
@@ -89,8 +90,9 @@
                         <td><s:property value="id" /></td>
                         <td><s:property value="category.name" /></td>
                         <td><s:property value="name" /></td>
-                        <td><s:property value="description" /></td>
+                        <td><s:property value="quantity" /></td>
                         <td><s:property value="price" /></td>
+                        <td><s:property value="sdr" /></td>
                         <s:url var="deleteLink" action="deleteProduct">
                             <s:param name="productId"><s:property value="id" /></s:param>
                         </s:url>

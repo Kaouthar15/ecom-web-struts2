@@ -86,6 +86,9 @@ public class Product implements Serializable {
 		this.quantity = quantity;
 	}
 
+	public String toString() {
+		return "name : "+name +" price : "+price+" quantity : "+quantity + " sdr : " + sdr;
+	}
 
 
 

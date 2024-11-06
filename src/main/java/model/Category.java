@@ -19,7 +19,6 @@ public class Category {
     private String name;
     private String description;
     
-
     
     // Constructors
 	public Category() {
@@ -61,4 +60,7 @@ public class Category {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	public String toString() {
+    	return "Category [id=" + id + ", name=" + name + ", description=" + description + "]";
+    }
 }
