@@ -22,6 +22,11 @@ public class ProductAction extends ActionSupport {
     private String keyword;
     private Long categoryId; 
 
+
+    public void setCategories(List<Category> categories) {
+    	this.categories = categories;  
+    }
+    
     // Getter and Setter methods for Struts
     public List<Product> getProducts() {
         return products;
@@ -30,6 +35,8 @@ public class ProductAction extends ActionSupport {
     public List<Category> getCategories() {
         return categories;
     }
+    
+
 
     public String getKeyword() {
         return keyword;
@@ -66,19 +73,20 @@ public class ProductAction extends ActionSupport {
     // Action methods
     public String list() {
         System.out.println("Listing products");
+        
         products = productService.list();
-        System.out.println("Total products: " + products.size());
         return SUCCESS;
     }
     
     public String add() {
-        // Fetch categories for the dropdown
         categories = categoryService.list();
         System.out.println("Category ID: " + categoryId);
         System.out.println("Categories available: " + categories);
         
         if (product != null && categoryId != null) {
+        	
             System.out.println("Adding product with Category ID: " + categoryId);
+            
             productService.add(product, categoryId); 
             return SUCCESS;
         }
