@@ -15,6 +15,7 @@ public class CategoryAction extends ActionSupport {
     private Long categoryId;
     private String keyword;
 
+
     // Getter and Setter methods for Struts
     public List<Category> getCategories() {
         return categories;
@@ -51,13 +52,19 @@ public class CategoryAction extends ActionSupport {
     }
 
     public String update() {
-        if (category != null && category.getId() != null) {
+        if (category != null && category.getId() != null) { 
             categoryService.update(category);
             return SUCCESS;
         }
         return INPUT;
     }
 
+    public String updateCategoryFormData() {
+        Category category = categoryService.getById(categoryId);
+        setCategory(category); 
+        return SUCCESS;
+    }
+    
     public String delete() {
         if (categoryId > 0) {
             categoryService.remove(categoryId);
@@ -72,5 +79,9 @@ public class CategoryAction extends ActionSupport {
             return SUCCESS;
         }
         return INPUT;
+    }
+    @Override
+    public void validate() {
+        // Custom validation logic, if necessary
     }
 }

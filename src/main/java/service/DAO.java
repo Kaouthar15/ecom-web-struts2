@@ -2,6 +2,8 @@ package service;
 
 import java.util.List;
 
+import model.Category;
+
 
 public interface DAO<T> {
     T get(Long id);
@@ -15,6 +17,8 @@ public interface DAO<T> {
 	List<T> selectByKeyword(String str);
 
 	void remove(Long id);
+
+	Category getById(Long categoryId);
 
 	
 }

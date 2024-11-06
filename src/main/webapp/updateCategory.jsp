@@ -73,13 +73,14 @@
 <body>
     <div class="container">
         <h2>Add New Category</h2>
-        <s:form action="addCategory" method="post">
+        <s:form action="updateCategory" method="post">
             <div class="form-group">
-                <s:textfield label="Name" name="category.name" />
+                <s:textfield label="Name" name="category.name" value="%{category.name}" />
             </div>
             <div class="form-group">
-                <s:textarea label="Description" name="category.description"/>
+                <s:textarea label="Description" name="category.description" value="%{category.description}"/>
             </div>
+             <s:hidden name="category.id" value="%{category.id}"/> 
             <s:submit cssClass="submit-button" value="Add Category"/>
         </s:form>
         <p><a class="back-link" href="listCategories.action">Back to Category List</a></p>

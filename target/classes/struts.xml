@@ -4,7 +4,7 @@
 <struts>
 	<constant name="struts.devMode" value="true" />
 	<constant name="struts.ui.theme" value="css_xhtml" />
-	<include file="CategoryAction-validator.xml"/>
+<!-- 	<include file="CategoryAction-validator.xml"/> -->
 	<package name="default" extends="struts-default">
 
 		<default-action-ref name="listCategories" />
@@ -33,10 +33,13 @@
 		<!-- Update Category Action -->
 		<action name="updateCategory" class="actions.CategoryAction"
 			method="update">
-			<result name="success">/category.jsp</result>
+			<result name="success" type="redirectAction">listCategories</result>
 			<result name="input">/inputCategory.jsp</result>
 		</action>
-
+		<action name="updateCategoryForm" class="actions.CategoryAction"
+		                method="updateCategoryFormData">
+		            <result name="success">/updateCategory.jsp</result>
+		</action>
 		<!-- Search Categories Action -->
 		<action name="searchCategories" class="actions.CategoryAction"
 			method="search">
@@ -69,9 +72,10 @@
 			<!-- Action to update a product -->
 		<action name="updateProduct" class="actions.ProductAction"
 			method="update">
-			<result name="success">/products.jsp</result>
-			<result name="input">/updateProduct.jsp</result>
+			<result name="success" type="redirectAction">listProducts</result>
+			<result name="input">/inputProduct.jsp</result>
 		</action>
+		
 
 		<!-- Action to delete a product -->
 		<action name="deleteProduct" class="actions.ProductAction"

@@ -127,4 +127,10 @@ public class ProductService implements DAO<Product> {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public Category getById(Long categoryId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

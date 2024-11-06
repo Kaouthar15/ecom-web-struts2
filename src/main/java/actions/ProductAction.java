@@ -140,5 +140,5 @@ public class ProductAction extends ActionSupport {
         }
         return INPUT;
     }
-    
+
 }

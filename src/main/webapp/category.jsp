@@ -52,6 +52,7 @@
         .action-link {
             color: #007bff;
             text-decoration: none;
+            border : none;
         }
         .action-link:hover {
             text-decoration: underline;
@@ -82,7 +83,7 @@
                     <th>Id</th>
                     <th>Name</th>
                     <th>Description</th>
-                    <th>Action</th>
+                    <th>Actions</th>
                 </tr>
                 <s:iterator value="categories"> 
                     <tr>
@@ -92,7 +93,13 @@
                         <s:url var="deleteLink" action="deleteCategory">
                             <s:param name="categoryId"><s:property value="id" /></s:param>
                         </s:url>
-                        <td><s:a href="%{deleteLink}" cssClass="action-link">Delete</s:a></td>
+                        <td>
+	                        <s:a href="%{deleteLink}" cssClass="action-link">Delete</s:a>
+	                        <form method="post" action="updateCategoryForm">
+	                        	<input type="hidden" name="categoryId" value="<s:property value="id"/>">
+	                        	<input type="submit" value="Update" class="action-link">
+	                    	</form>
+                    	</td>
                     </tr>
                 </s:iterator>
             </table>

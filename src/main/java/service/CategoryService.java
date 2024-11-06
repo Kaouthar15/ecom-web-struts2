@@ -69,6 +69,15 @@ public class CategoryService implements DAO<Category> {
 	    return category;
 	}
 	
+	@Override
+	public Category getById(Long categoryId) {
+		Session session =  this.sessionFactory.getCurrentSession();
+		session.beginTransaction();
+		Category category = (Category) session.getReference(Category.class, Long.valueOf(categoryId));
+		session.getTransaction().commit();
+		logger.info("Category loaded successfully, Category details="+category); 
+		return category;
+	}
 //	list all the categories
 	@Override
 	public List<Category> list() {
