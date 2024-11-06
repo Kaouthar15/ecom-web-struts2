@@ -23,20 +23,22 @@ public class ProductAction extends ActionSupport {
     private Long categoryId; 
 
 
-    public void setCategories(List<Category> categories) {
-    	this.categories = categories;  
-    }
-    
     // Getter and Setter methods for Struts
     public List<Product> getProducts() {
         return products;
     }
-
+    public void setProducts(List<Product> products) {
+    	this.products = products;  
+    }
     public List<Category> getCategories() {
         return categories;
     }
     
 
+    public void setCategories(List<Category> categories) {
+    	this.categories = categories;  
+    }
+    
 
     public String getKeyword() {
         return keyword;
