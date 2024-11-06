@@ -29,6 +29,7 @@ public class ProductService implements DAO<Product> {
 
     // Get a product using its ID
     public Product get1(Long id) {
+
         Session session = this.sessionFactory.getCurrentSession();
         session.beginTransaction();
         Product product = session.get(Product.class, id);
@@ -36,6 +37,7 @@ public class ProductService implements DAO<Product> {
         logger.info("Product loaded successfully, Product details=" + product); 
         return product;
     }
+
 
     // List all products
     @Override
@@ -55,11 +57,9 @@ public class ProductService implements DAO<Product> {
 
     // Add a product with a category
     public void add(Product product, Long categoryId) {
-    	System.out.println("categoryId from serivce"+categoryId);
         Session session = this.sessionFactory.getCurrentSession();
         session.beginTransaction();
-
-        // Set the selected Category on the Product
+        
         Category category = categoryService.get(categoryId);
         if (category != null) {
             product.setCategory(category);
@@ -67,9 +67,9 @@ public class ProductService implements DAO<Product> {
 
         session.persist(product);
         session.getTransaction().commit();
+        
         logger.info("Product saved successfully, Product Details=" + product);
     }
-
     // Update a product with a category
     public void update(Product product, Long categoryId) {
         Session session = this.sessionFactory.getCurrentSession();

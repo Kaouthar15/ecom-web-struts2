@@ -3,11 +3,22 @@ package actions;
 import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.validator.annotations.RequiredFieldValidator;
+import com.opensymphony.xwork2.validator.annotations.Validations;
 
 import model.Category;
 import model.Product;
 import service.ProductService;
 import service.CategoryService;
+
+
+
+@Validations(
+		requiredFields = {
+				@RequiredFieldValidator(fieldName = "")
+		}
+		
+)
 
 public class ProductAction extends ActionSupport {
 
@@ -73,23 +84,34 @@ public class ProductAction extends ActionSupport {
     }
 
     // Action methods
+    
+    public String execute() {
+        // Retrieve categories from the database using the service
+        categories = categoryService.list();
+        System.out.println(categories);
+        return SUCCESS;
+    }
+    
     public String list() {
         System.out.println("Listing products");
         
         products = productService.list();
         return SUCCESS;
     }
+
+    public String addProductFormData() {
+//    	CategoryService categoryService = new CategoryService();
+    	setCategories(categoryService.list());
+    	return SUCCESS; 
+    }
     
     public String add() {
         categories = categoryService.list();
-        System.out.println("Category ID: " + categoryId);
-        System.out.println("Categories available: " + categories);
         
         if (product != null && categoryId != null) {
-        	
-            System.out.println("Adding product with Category ID: " + categoryId);
-            
-            productService.add(product, categoryId); 
+                    
+            productService.add(product, categoryId);
+            System.out.println("add product ");
             return SUCCESS;
         }
         System.out.println(product + " categoryId :  " + categoryId); 

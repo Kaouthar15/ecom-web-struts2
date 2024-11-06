@@ -78,10 +78,10 @@
                 <s:textfield label="Product Name" name="product.name" required="true"/>
             </div>
                <div class="form-group">
-                <s:textarea label="SDR" name="product.sdr"/>
+                <s:textfield label="SDR" name="product.sdr"/>
             </div>
             <div class="form-group">
-                <s:textarea label="Quantity" name="product.quantity"/>
+                <s:textfield label="Quantity" name="product.quantity"/>
             </div>
             <div class="form-group">
                 <s:textfield label="Price" name="product.price" required="true" />

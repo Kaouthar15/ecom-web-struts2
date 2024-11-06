@@ -57,10 +57,13 @@
 			<result name="success" type="redirectAction">listProducts</result>
 			<result name="input">/inputProduct.jsp</result>
 		</action>
-		<action name="inputProduct" class="actions.ProductAction" method="input">
-		    <result name="input">/addProduct.jsp</result>
-		</action>
-		<!-- Action to update a product -->
+        <action name="addProductForm" class="actions.ProductAction" method="addProductFormData"> 
+        	<result name="success">/addProduct.jsp</result> 
+        </action>
+        
+        
+        
+			<!-- Action to update a product -->
 		<action name="updateProduct" class="actions.ProductAction"
 			method="update">
 			<result name="success">/products.jsp</result>

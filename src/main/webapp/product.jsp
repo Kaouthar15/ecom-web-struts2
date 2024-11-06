@@ -104,7 +104,7 @@
         <s:else>
             <p>There are no products in the list.</p>
         </s:else>
-        <a href="addProduct.jsp" class="add-product-link">Add a Product</a>
+        <a href="addProductForm.action" class="add-product-link">Add a Product</a>
     </div>
 </body>
 </html>
