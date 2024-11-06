@@ -1,0 +1,21 @@
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+    "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+    
+<validators>
+
+	<field name="category.name">
+		<field-validator type="requiredstring">
+			<message>The Name of The Category is obligatory </message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="mixLength">2</param>
+			<param name="maxLength">50</param>
+			<message>The name should be between 2 and 50 characters</message>
+		</field-validator>
+	</field>
+	<field name="categoryId">
+		<field-validator type="Long">
+			<message>The Id should be a valid Long</message>
+		</field-validator>
+	</field>
+</validators>

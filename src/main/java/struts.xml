@@ -4,7 +4,7 @@
 <struts>
 	<constant name="struts.devMode" value="true" />
 	<constant name="struts.ui.theme" value="css_xhtml" />
-
+	<include file="CategoryAction-validator.xml"/>
 	<package name="default" extends="struts-default">
 
 		<default-action-ref name="listCategories" />
@@ -27,6 +27,7 @@
 		<action name="addCategory" class="actions.CategoryAction" method="add">
 			<result name="success" type="redirectAction">listCategories</result>
 			<result name="input">/inputCategory.jsp</result>
+			
 		</action>
 
 		<!-- Update Category Action -->
@@ -53,9 +54,11 @@
 		</action>
 
 		<!-- Action to add a product -->
+		
 		<action name="addProduct" class="actions.ProductAction" method="add">
 			<result name="success" type="redirectAction">listProducts</result>
 			<result name="input">/inputProduct.jsp</result>
+			
 		</action>
         <action name="addProductForm" class="actions.ProductAction" method="addProductFormData"> 
         	<result name="success">/addProduct.jsp</result> 

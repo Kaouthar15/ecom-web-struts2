@@ -39,6 +39,14 @@
 		    <version>6.0.0</version>
 		</dependency>
 		
+		<!--		struts2 vadlidation-->
+		<dependency>
+		    <groupId>org.apache.struts</groupId>
+		    <artifactId>struts2-bean-validation-plugin</artifactId>
+		    <version>6.0.0</version>
+		</dependency>
+
+				
         <!-- MySQL Connector -->
         <dependency>
             <groupId>mysql</groupId>

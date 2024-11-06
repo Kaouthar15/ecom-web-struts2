@@ -1,5 +1,4 @@
 util\HibernateUtil.class
-model\Test.class
 service\DAO.class
 model\Product.class
 model\Category.class

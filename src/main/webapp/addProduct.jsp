@@ -78,10 +78,10 @@
                 <s:textfield label="Product Name" name="product.name" required="true"/>
             </div>
                <div class="form-group">
-                <s:textfield label="SDR" name="product.sdr"/>
+                <s:textfield label="SDR" name="product.sdr"  required="true"/>
             </div>
             <div class="form-group">
-                <s:textfield label="Quantity" name="product.quantity"/>
+                <s:textfield label="Quantity" name="product.quantity"  required="true"/>
             </div>
             <div class="form-group">
                 <s:textfield label="Price" name="product.price" required="true" />
@@ -92,6 +92,7 @@
             <s:submit cssClass="submit-button" value="Add Product"/>
         </s:form>
         <p><a class="back-link" href="listProducts.action">Back to Product List</a></p>
+        <s:actionerror />
     </div>
 </body>
 </html>

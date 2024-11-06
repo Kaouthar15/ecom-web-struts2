@@ -3,8 +3,6 @@ package actions;
 import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.opensymphony.xwork2.validator.annotations.RequiredFieldValidator;
-import com.opensymphony.xwork2.validator.annotations.Validations;
 
 import model.Category;
 import model.Product;
@@ -12,13 +10,6 @@ import service.ProductService;
 import service.CategoryService;
 
 
-
-@Validations(
-		requiredFields = {
-				@RequiredFieldValidator(fieldName = "")
-		}
-		
-)
 
 public class ProductAction extends ActionSupport {
 
@@ -149,4 +140,5 @@ public class ProductAction extends ActionSupport {
         }
         return INPUT;
     }
+    
 }
