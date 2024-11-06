@@ -29,7 +29,7 @@ public class ProductService implements DAO<Product> {
 
     // Get a product using its ID
     public Product get1(Long id) {
-
+    	System.out.println("get1 product service");
         Session session = this.sessionFactory.getCurrentSession();
         session.beginTransaction();
         Product product = session.get(Product.class, id);

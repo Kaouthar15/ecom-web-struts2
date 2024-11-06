@@ -26,7 +26,6 @@ public class CategoryService implements DAO<Category> {
 //	add a category
 	@Override
 	public void add(Category category) {
-		System.out.println("add category method");
 		Session session = this.sessionFactory.getCurrentSession();
 		session.beginTransaction();
 		session.persist(category);
@@ -82,13 +81,11 @@ public class CategoryService implements DAO<Category> {
 	@Override
 	public List<Category> list() {
 		List<Category> CategoriesList = new ArrayList<>();
-		System.out.println("list all categories");
 		try {
 			Session session = this.sessionFactory.getCurrentSession();
 			session.beginTransaction();
 			CategoriesList = session.createQuery("select c from Category c", Category.class).list();
 			session.getTransaction().commit();
-			System.out.println("categorie's list size : "+CategoriesList.size());
 			return CategoriesList;
 		} catch (Exception e) {
 			System.out.println("Error in getAllCategories\n"+e);

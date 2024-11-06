@@ -96,7 +96,13 @@
                         <s:url var="deleteLink" action="deleteProduct">
                             <s:param name="productId"><s:property value="id" /></s:param>
                         </s:url>
-                        <td><s:a href="%{deleteLink}" cssClass="action-link">Delete</s:a></td>
+                        <td>
+                        <s:a href="%{deleteLink}" cssClass="action-link">Delete</s:a>
+	                        <form method="post" action="updateProductForm">
+		                        	<input type="hidden" name="productId" value="<s:property value="id"/>">
+		                        	<input type="submit" value="Update" class="action-link">
+		                    </form>
+                        </td>
                     </tr>
                 </s:iterator>
             </table>

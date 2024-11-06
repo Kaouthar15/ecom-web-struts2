@@ -95,7 +95,7 @@
                         </s:url>
                         <td>
 	                        <s:a href="%{deleteLink}" cssClass="action-link">Delete</s:a>
-	                        <form method="post" action="updateCategoryForm">
+	                        <form method="post" action="updateProductForm">
 	                        	<input type="hidden" name="categoryId" value="<s:property value="id"/>">
 	                        	<input type="submit" value="Update" class="action-link">
 	                    	</form>

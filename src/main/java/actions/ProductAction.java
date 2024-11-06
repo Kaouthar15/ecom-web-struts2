@@ -91,7 +91,6 @@ public class ProductAction extends ActionSupport {
     }
 
     public String addProductFormData() {
-//    	CategoryService categoryService = new CategoryService();
     	setCategories(categoryService.list());
     	return SUCCESS; 
     }
@@ -102,10 +101,8 @@ public class ProductAction extends ActionSupport {
         if (product != null && categoryId != null) {
                     
             productService.add(product, categoryId);
-            System.out.println("add product ");
             return SUCCESS;
         }
-        System.out.println(product + " categoryId :  " + categoryId); 
         return INPUT;
     }
     
@@ -117,12 +114,20 @@ public class ProductAction extends ActionSupport {
     
     public String update() {
         categories = categoryService.list();
-        
+        System.out.println("update first");
         if (product != null && product.getId() != null && categoryId != null) {
+        	System.out.println("pass done");
             productService.update(product, categoryId); 
             return SUCCESS;
         }
         return INPUT;
+    }
+    public String updateProductFormData() {
+    	System.out.println("updateProductFormData");
+    	setCategories(categoryService.list());
+    	Product product = productService.get1(productId);
+    	setProduct(product);
+    	return SUCCESS; 
     }
     
     public String delete() {

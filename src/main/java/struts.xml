@@ -75,7 +75,10 @@
 			<result name="success" type="redirectAction">listProducts</result>
 			<result name="input">/inputProduct.jsp</result>
 		</action>
-		
+		<action name="updateProductForm" class="actions.ProductAction"
+		                method="updateProductFormData">
+		            <result name="success">/updateProduct.jsp</result> 
+		</action>
 
 		<!-- Action to delete a product -->
 		<action name="deleteProduct" class="actions.ProductAction"
