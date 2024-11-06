@@ -83,12 +83,18 @@
             <div class="form-group">
                 <s:textarea label="Quantity" name="product.quantity"/>
             </div>
-			 <div class="form-group">
-<%-- 			  	<s:select id="id" name="categoryId" list="categories" listKey="id" listValue="name"/>  --%>
-			  </div>
             <div class="form-group">
                 <s:textfield label="Price" name="product.price" required="true" />
             </div>
+			 <div class="form-group">
+<%-- 			  	<s:select id="id" name="categoryId" list="categories" listKey="id" listValue="name"/>  --%>
+				<select name="categoryId">
+				   <c:forEach items="${categories}" var="category">
+				       <option value="${category.id}" >${category.name}</option>
+				   </c:forEach>
+				</select>
+			  </div>
+            
             <s:submit cssClass="submit-button" value="Add Product"/>
         </s:form>
         <p><a class="back-link" href="listProducts.action">Backk to Product List</a></p>

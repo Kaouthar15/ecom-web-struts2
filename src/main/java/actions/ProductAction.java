@@ -85,9 +85,11 @@ public class ProductAction extends ActionSupport {
         System.out.println(product + " categoryId :  " + categoryId); 
         return INPUT;
     }
+    
     public String input() {
         categories = categoryService.list();
-        return INPUT; // Return the input view
+        System.out.println("Fetched categories: " + categories); 
+        return INPUT; 
     }
     
     public String update() {

@@ -2,7 +2,6 @@ package service;
 
 import java.util.List;
 
-import model.Product;
 
 public interface DAO<T> {
     T get(Long id);
