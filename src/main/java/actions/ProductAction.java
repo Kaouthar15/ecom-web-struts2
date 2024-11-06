@@ -139,8 +139,12 @@ public class ProductAction extends ActionSupport {
     }
     
     public String search() {
+    	System.out.println("select by keyword (action)");
+    	
         if (keyword != null && !keyword.isEmpty()) {
-            products = productService.selectByKeyword(keyword);
+        	System.out.println("first keword" + " " + keyword);
+        	System.out.println(keyword);
+        	products = productService.selectByKeyword(keyword);
             return SUCCESS;
         }
         return INPUT;

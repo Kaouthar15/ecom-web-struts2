@@ -98,9 +98,10 @@ public class CategoryService implements DAO<Category> {
 	public List<Category> selectByKeyword(String str) {
 		Session session = this.sessionFactory.getCurrentSession();
 		session.beginTransaction();
-		List<Category> CategoriesList = session.createQuery("from Category c WHERE c.nom LIKE '%"+str+"%'", Category.class).list();
+		List<Category> categoriesList = session.createQuery("from Category c WHERE c.name LIKE '%"+str+"%'", Category.class).list();
 		session.getTransaction().commit(); 
-		return CategoriesList;
+		System.out.println(categoriesList);
+		return categoriesList;
 	}
 	
 }

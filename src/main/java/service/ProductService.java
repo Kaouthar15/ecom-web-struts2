@@ -89,6 +89,7 @@ public class ProductService implements DAO<Product> {
     // Select a product using a keyword
     @Override
     public List<Product> selectByKeyword(String str) {
+    	System.out.println("select by keyword (service)"); 
         Session session = this.sessionFactory.getCurrentSession();
         session.beginTransaction();
         List<Product> productsList = session.createQuery("from Product p WHERE p.name LIKE :keyword", Product.class)

@@ -41,7 +41,7 @@
 		            <result name="success">/updateCategory.jsp</result>
 		</action>
 		<!-- Search Categories Action -->
-		<action name="searchCategories" class="actions.CategoryAction"
+		<action name="searchCategory" class="actions.CategoryAction"
 			method="search">
 			<result name="success">/category.jsp</result>
 			<result name="input">/searchedCategory.jsp</result>
@@ -89,8 +89,8 @@
 		<!-- Action to search for products -->
 		<action name="searchProduct" class="actions.ProductAction"
 			method="search">
-			<result name="success"  >/products.jsp</result>
-			<result name="input">/searchProduct.jsp</result>
+			<result name="success" >/product.jsp</result> 
+			<result name="input">/inputProduct.jsp</result>
 		</action>
 
 	</package>
