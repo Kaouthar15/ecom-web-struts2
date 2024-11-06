@@ -74,6 +74,7 @@
 <body>
 	<a href=""></a>
     <div class="container">
+            <a class="add-category-link" href="listProducts.action"> Product List</a>
         <h2>Categories List: <s:property value="%{categories.size}"/></h2>
         <s:if test="%{categories.size > 0}">
             <table>
@@ -100,6 +101,7 @@
             <p>There are no categories in the list.</p>
         </s:else>
         <a href="addCategory.jsp" class="add-category-link">Add a Category</a>
+
     </div>
 </body>
 </html>
