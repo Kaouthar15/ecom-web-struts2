@@ -14,7 +14,6 @@ public class HibernateUtil {
 	        if (factory == null) {
 	            factory = new Configuration().configure().buildSessionFactory();
 	        }
-//	        System.out.println("connexion hibrnate");
 	        return factory;
 	    }
 

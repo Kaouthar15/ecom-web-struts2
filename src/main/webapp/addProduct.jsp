@@ -87,7 +87,7 @@
                 <s:textfield label="Price" name="product.price"  />
             </div>
 			 <div class="form-group">
-<%-- 			  	<s:select id="category" name="categoryId" list="categories" listKey="id" listValue="name" required="true"/> --%>
+			  	<s:select id="category" name="categoryId" list="categories" listKey="id" listValue="name" required="true"/>
 			  </div>
             <s:submit cssClass="submit-button" value="Add Product"/>
         </s:form>

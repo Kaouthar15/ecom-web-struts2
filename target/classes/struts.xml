@@ -6,10 +6,9 @@
 	<constant name="struts.convention.action.scanPackages" value="actions" />
 	<constant name="struts.ui.theme" value="css_xhtml" />
 	
-<!-- 	<include file="CategoryAction-validator.xml"/> -->
 	<package name="default" extends="struts-default">
 
-<!-- 		<default-action-ref name="listCategories" /> -->
+		<default-action-ref name="listCategories" />
 
 		<!-- List Categories Action -->
 		<action name="listCategories" class="actions.CategoryAction"

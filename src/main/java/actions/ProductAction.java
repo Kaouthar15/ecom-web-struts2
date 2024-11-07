@@ -2,7 +2,7 @@ package actions;
 
 import java.util.List;
 
-import org.apache.struts2.interceptor.validation.SkipValidation;
+//import org.apache.struts2.interceptor.validation.SkipValidation;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -11,7 +11,7 @@ import model.Product;
 import service.ProductService;
 import service.CategoryService;
 
-import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
+//import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
 
 public class ProductAction extends ActionSupport {
 
@@ -79,19 +79,19 @@ public class ProductAction extends ActionSupport {
     }
 
     // Action methods
-    @SkipValidation
+//    @SkipValidation
     public String execute() {
         categories = categoryService.list();
         System.out.println(categories);
         return SUCCESS;
     }
-    @SkipValidation
+//    @SkipValidation
     public String list() {
         
         products = productService.list();
         return SUCCESS;
     }
-    @SkipValidation
+//    @SkipValidation
     public String addProductFormData() {
     	setCategories(categoryService.list());
     	return SUCCESS; 
@@ -108,12 +108,12 @@ public class ProductAction extends ActionSupport {
         }
         return INPUT;
     }
-    @SkipValidation
+//    @SkipValidation
     public String input() {
         categories = categoryService.list();
         return INPUT; 
     }
-    @SkipValidation
+//    @SkipValidation
     public String update() {
         categories = categoryService.list();
         if (product != null && product.getId() != null && categoryId != null) {
@@ -122,14 +122,14 @@ public class ProductAction extends ActionSupport {
         }
         return INPUT;
     }
-    @SkipValidation
+//    @SkipValidation
     public String updateProductFormData() {
     	setCategories(categoryService.list());
     	Product product = productService.get1(productId);
     	setProduct(product);
     	return SUCCESS; 
     }
-    @SkipValidation
+//    @SkipValidation
     public String delete() {
         if (productId != null && productId > 0) {
             productService.remove(productId);
@@ -137,7 +137,7 @@ public class ProductAction extends ActionSupport {
         }
         return INPUT;
     }
-    @SkipValidation
+//    @SkipValidation
     public String search() {
     	
         if (keyword != null && !keyword.isEmpty()) {
@@ -149,7 +149,7 @@ public class ProductAction extends ActionSupport {
 	public String getNameString() {
 		return nameString;
 	}
-	@RequiredStringValidator (message= "You must enter a value for name.")
+//	@RequiredStringValidator (message= "You must enter a value for name.")
 	public void setNameString(String nameString) {
 		this.nameString = nameString;
 	}
