@@ -2,6 +2,8 @@ package actions;
 
 import java.util.List;
 
+import org.apache.struts2.interceptor.validation.SkipValidation;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 import model.Category;
@@ -9,7 +11,7 @@ import model.Product;
 import service.ProductService;
 import service.CategoryService;
 
-
+import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
 
 public class ProductAction extends ActionSupport {
 
@@ -23,12 +25,14 @@ public class ProductAction extends ActionSupport {
     private Long productId;
     private String keyword;
     private Long categoryId; 
+    private String nameString;
 
 
     // Getter and Setter methods for Struts
     public List<Product> getProducts() {
         return products;
     }
+    
     public void setProducts(List<Product> products) {
     	this.products = products;  
     }
@@ -75,27 +79,26 @@ public class ProductAction extends ActionSupport {
     }
 
     // Action methods
-    
+    @SkipValidation
     public String execute() {
-        // Retrieve categories from the database using the service
         categories = categoryService.list();
         System.out.println(categories);
         return SUCCESS;
     }
-    
+    @SkipValidation
     public String list() {
-        System.out.println("Listing products");
         
         products = productService.list();
         return SUCCESS;
     }
-
+    @SkipValidation
     public String addProductFormData() {
     	setCategories(categoryService.list());
     	return SUCCESS; 
     }
     
     public String add() {
+    	System.out.println("adding");
         categories = categoryService.list();
         
         if (product != null && categoryId != null) {
@@ -105,31 +108,28 @@ public class ProductAction extends ActionSupport {
         }
         return INPUT;
     }
-    
+    @SkipValidation
     public String input() {
         categories = categoryService.list();
-        System.out.println("Fetched categories: " + categories); 
         return INPUT; 
     }
-    
+    @SkipValidation
     public String update() {
         categories = categoryService.list();
-        System.out.println("update first");
         if (product != null && product.getId() != null && categoryId != null) {
-        	System.out.println("pass done");
             productService.update(product, categoryId); 
             return SUCCESS;
         }
         return INPUT;
     }
+    @SkipValidation
     public String updateProductFormData() {
-    	System.out.println("updateProductFormData");
     	setCategories(categoryService.list());
     	Product product = productService.get1(productId);
     	setProduct(product);
     	return SUCCESS; 
     }
-    
+    @SkipValidation
     public String delete() {
         if (productId != null && productId > 0) {
             productService.remove(productId);
@@ -137,17 +137,21 @@ public class ProductAction extends ActionSupport {
         }
         return INPUT;
     }
-    
+    @SkipValidation
     public String search() {
-    	System.out.println("select by keyword (action)");
     	
         if (keyword != null && !keyword.isEmpty()) {
-        	System.out.println("first keword" + " " + keyword);
-        	System.out.println(keyword);
         	products = productService.selectByKeyword(keyword);
             return SUCCESS;
         }
         return INPUT;
     }
+	public String getNameString() {
+		return nameString;
+	}
+	@RequiredStringValidator (message= "You must enter a value for name.")
+	public void setNameString(String nameString) {
+		this.nameString = nameString;
+	}
 
 }

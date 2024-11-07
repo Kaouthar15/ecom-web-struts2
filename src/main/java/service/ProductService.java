@@ -29,7 +29,6 @@ public class ProductService implements DAO<Product> {
 
     // Get a product using its ID
     public Product get1(Long id) {
-    	System.out.println("get1 product service");
         Session session = this.sessionFactory.getCurrentSession();
         session.beginTransaction();
         Product product = session.get(Product.class, id);
@@ -89,7 +88,6 @@ public class ProductService implements DAO<Product> {
     // Select a product using a keyword
     @Override
     public List<Product> selectByKeyword(String str) {
-    	System.out.println("select by keyword (service)"); 
         Session session = this.sessionFactory.getCurrentSession();
         session.beginTransaction();
         List<Product> productsList = session.createQuery("from Product p WHERE p.name LIKE :keyword", Product.class)

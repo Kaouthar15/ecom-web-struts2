@@ -3,11 +3,13 @@
         "https://struts.apache.org/dtds/struts-6.0.dtd">
 <struts>
 	<constant name="struts.devMode" value="true" />
+	<constant name="struts.convention.action.scanPackages" value="actions" />
 	<constant name="struts.ui.theme" value="css_xhtml" />
+	
 <!-- 	<include file="CategoryAction-validator.xml"/> -->
 	<package name="default" extends="struts-default">
 
-		<default-action-ref name="listCategories" />
+<!-- 		<default-action-ref name="listCategories" /> -->
 
 		<!-- List Categories Action -->
 		<action name="listCategories" class="actions.CategoryAction"
@@ -54,17 +56,19 @@
 		<action name="listProducts" class="actions.ProductAction"
 			method="list">
 			<result name="success">/product.jsp</result>
+<!-- 			<result name="input" type="redirectAction">listProducts</result> -->
 		</action>
 
 		<!-- Action to add a product -->
 		
 		<action name="addProduct" class="actions.ProductAction" method="add">
 			<result name="success" type="redirectAction">listProducts</result>
-			<result name="input">/inputProduct.jsp</result>
+			<result name="input" >./addProduct.jsp</result>
 			
 		</action>
         <action name="addProductForm" class="actions.ProductAction" method="addProductFormData"> 
         	<result name="success">/addProduct.jsp</result> 
+        	<result name="input">/product.jsp</result>
         </action>
         
         
@@ -78,12 +82,14 @@
 		<action name="updateProductForm" class="actions.ProductAction"
 		                method="updateProductFormData">
 		            <result name="success">/updateProduct.jsp</result> 
+		            <result name="input" type="redirectAction">listProducts</result>
 		</action>
 
 		<!-- Action to delete a product -->
 		<action name="deleteProduct" class="actions.ProductAction"
 			method="delete">
 			<result name="success" type="redirectAction">listProducts</result>
+			<result name="input" type="redirectAction">listProducts</result>
 		</action>
 
 		<!-- Action to search for products -->

@@ -75,7 +75,7 @@
         <h2>Add New Category</h2>
         <s:form action="addCategory" method="post">
             <div class="form-group">
-                <s:textfield label="Name" name="category.name" required="true"/>
+                <s:textfield label="Name" name="category.name" />
             </div>
             <div class="form-group">
                 <s:textarea label="Description" name="category.description"/>

@@ -52,6 +52,7 @@
         .action-link {
             color: #007bff;
             text-decoration: none;
+            border : none;
         }
         .action-link:hover {
             text-decoration: underline;
@@ -69,11 +70,64 @@
         .add-category-link:hover {
             background-color: #218838;
         }
+        /* Form Container */
+.search-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Text Field Styling */
+.search-input {
+    width: 70%;
+    padding: 10px;
+    border: 2px solid #ced4da;
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    margin-right: 10px;
+}
+
+/* Focus Effect for Text Field */
+.search-input:focus {
+    border-color: #007bff;
+}
+
+/* Submit Button Styling */
+.search-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover Effect for Submit Button */
+.search-button:hover {
+    background-color: #0056b3;
+}
+        
     </style>
 </head>
 <body>
 	<a href=""></a>
     <div class="container">
+	    	<s:form action="searchCategory" method="get" cssClass="search-form">
+			    <s:textfield  name="keyword" cssClass="search-input" />  
+			    <s:submit cssClass="search-button" value="Search Category"/> 
+			</s:form>
+    		
             <a class="add-category-link" href="listProducts.action"> Product List</a>
         <h2>Categories List: <s:property value="%{categories.size}"/></h2>
         <s:if test="%{categories.size > 0}">
@@ -82,7 +136,7 @@
                     <th>Id</th>
                     <th>Name</th>
                     <th>Description</th>
-                    <th>Action</th>
+                    <th>Actions</th>
                 </tr>
                 <s:iterator value="categories"> 
                     <tr>
@@ -92,7 +146,13 @@
                         <s:url var="deleteLink" action="deleteCategory">
                             <s:param name="categoryId"><s:property value="id" /></s:param>
                         </s:url>
-                        <td><s:a href="%{deleteLink}" cssClass="action-link">Delete</s:a></td>
+                        <td>
+	                        <s:a href="%{deleteLink}" cssClass="action-link">Delete</s:a>
+	                        <form method="post" action="updateProductForm">
+	                        	<input type="hidden" name="categoryId" value="<s:property value="id"/>">
+	                        	<input type="submit" value="Update" class="action-link">
+	                    	</form>
+                    	</td>
                     </tr>
                 </s:iterator>
             </table>

@@ -75,19 +75,19 @@
         <h2>Add New Product</h2>
         <s:form action="addProduct" method="post">
             <div class="form-group">
-                <s:textfield label="Product Name" name="product.name" required="true"/>
+                <s:textfield label="Product Name" name="nameString" />
             </div>
                <div class="form-group">
-                <s:textfield label="SDR" name="product.sdr"  required="true"/>
+                <s:textfield label="SDR" name="product.sdr"  />
             </div>
             <div class="form-group">
-                <s:textfield label="Quantity" name="product.quantity"  required="true"/>
+                <s:textfield label="Quantity" name="product.quantity"  />
             </div>
             <div class="form-group">
-                <s:textfield label="Price" name="product.price" required="true" />
+                <s:textfield label="Price" name="product.price"  />
             </div>
 			 <div class="form-group">
-			  	<s:select id="category" name="categoryId" list="categories" listKey="id" listValue="name" required="true"/>
+<%-- 			  	<s:select id="category" name="categoryId" list="categories" listKey="id" listValue="name" required="true"/> --%>
 			  </div>
             <s:submit cssClass="submit-button" value="Add Product"/>
         </s:form>

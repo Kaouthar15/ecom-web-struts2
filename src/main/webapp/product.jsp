@@ -122,7 +122,7 @@
 <body>
     <div class="container">
     	<s:form action="searchProduct" method="get" cssClass="search-form">
-		    <s:textfield  name="keyword" cssClass="search-input" />  
+		    <s:textfield  name="keyword" cssClass="search-input" required="true"/>  
 		    <s:submit cssClass="search-button" value="Search Product"/> 
 		</s:form>
 
